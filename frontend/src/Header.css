@@ -1,0 +1,105 @@
+.App-header {
+  background-color: #5a3d2b;
+  height: 15vh;
+
+  margin-top: 0px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bubble';
+  /* font-size: calc(4px + 0.75vh + 0.25vw); */
+  font-size: calc(5px + 0.3vh + 0.4vw);
+  font-weight: 100;
+  color: #ffecb4;
+
+  z-index: 2;
+  position: sticky;
+  top: 0;
+
+  display: grid;
+  grid-template-columns: 25% 25% 20% 10% 10% 10%;
+  grid-template-rows: 60% 40%;
+}
+
+.App-header h1 {
+  font-weight: 100;
+  font-size: 5em;
+
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 10px;
+
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.App-header input {
+  margin-bottom: 20px;
+
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: -1;
+}
+
+.signUpButton,
+.usernameDisplay {
+  font-size: 2em;
+  text-align: left;
+  padding-left: 10px;
+
+  grid-column-start: 5;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.usernameDisplay p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin: 0px;
+}
+
+.signInButton,
+.logOutButton {
+  font-size: 2em;
+
+  text-align: right;
+  padding-right: 10px;
+  border-right: 5px solid black;
+
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.signUpButton:hover,
+.signInButton:hover,
+.logOutButton:hover,
+.seeFavsButton:hover {
+  cursor: pointer;
+}
+
+.seeFavsButton {
+  font-size: 2em;
+
+  background-color: brown;
+  /* padding-top: 5px; */
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+
+  grid-column-start: 5;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: -1;
+}
+
+.seeFavsButton div {
+  padding: 0.5em;
+}

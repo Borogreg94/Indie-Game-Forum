@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  background-color: #ffecb4;
+}
+
+.searchResultsFiller {
+  position: fixed;
+  top: 15vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffecb4;
+  z-index: -1;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

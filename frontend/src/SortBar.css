@@ -1,0 +1,26 @@
+.sortBarContainer {
+  position: fixed;
+  height: fit-content;
+  width: 10vw;
+  left: 1vw;
+  z-index: 1;
+}
+
+.sortBarTitle {
+  background-color: #1790a8;
+  font-size: 20px;
+}
+
+.sortButton {
+  border-radius: 50%;
+  width: 8vw;
+  background-color: #2ccff0;
+  margin: auto;
+  cursor: pointer;
+}
+
+.sortSection {
+  border: 1px solid black;
+  padding: 1vh;
+  margin-bottom: 5px;
+}

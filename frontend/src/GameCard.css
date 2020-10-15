@@ -1,0 +1,144 @@
+.gameCard {
+  background-color: #b3a16d;
+  height: 47vh;
+  min-height: 450px;
+
+  width: 55vw;
+  margin: 30px auto;
+  min-width: 720px;
+
+  font-size: 6px;
+
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 20% 65% 15%;
+
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.gameName {
+  /* background-color: cornflowerblue; */
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  text-align: center;
+  padding: 20px;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.gameRatings {
+  background-color: #f7c171;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.gameReleaseDate {
+  background-color: #f7c171;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.gameRatings,
+.gameReleaseDate {
+  border-right: 1px solid black;
+}
+
+.gamePlatforms {
+  background-color: #f7c171;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.gameRatings,
+.gameReleaseDate,
+.gamePlatforms {
+  font-size: 2.5em;
+}
+
+.gameCover {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: -1;
+
+  overflow: hidden;
+}
+
+.gameCover img {
+  max-width: 100%;
+  min-height: 100%;
+  height: auto;
+  display: block;
+}
+
+.gameSummary {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding: 3px 15px 0 15px;
+
+  overflow: hidden;
+}
+
+.gameSummary p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  /* font-size: 20px; */
+  font-size: 3em;
+  width: 100%;
+}
+
+.commentButton {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: -1;
+}
+
+.rateButton {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: -1;
+}
+
+.saveToFavButton {
+  grid-column-start: 4;
+  grid-column-end: -1;
+  grid-row-start: 3;
+  grid-row-end: -1;
+}
+
+.commentButton,
+.rateButton,
+.saveToFavButton {
+  background-color: #b0ecf8;
+  border: inset 1px black;
+  /* border-radius: 50%; */
+  /* padding-top: 6%; */
+  font-size: 20px;
+}
+
+.commentIcon,
+.starIcon,
+.favIcon {
+  height: 25px;
+  margin-top: 5px;
+}
+
+.starIcon:hover {
+  src: url('./icons/filledStar.svg');
+}

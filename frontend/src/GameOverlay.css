@@ -1,0 +1,130 @@
+.gameOverlayBackground {
+  position: fixed;
+  top: 9vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f4a127;
+  z-index: 4;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.gameOverlayBackground::-webkit-scrollbar {
+  display: none;
+}
+
+.gameAndCommentsContainer {
+  margin: auto;
+  position: relative;
+  z-index: 1000;
+}
+
+.gameAndCommentsContainer .gameCard {
+  margin-bottom: 0px;
+}
+
+.gameCardOverlay {
+  position: relative;
+}
+.gameCardOverlay button {
+  position: relative;
+}
+
+.closeOverlayButton {
+  margin: auto;
+  width: 10vw;
+
+  padding: 1vh;
+  border: 1px solid black;
+  font-size: 20px;
+  font-family: 'Bubble';
+  cursor: pointer;
+  color: #ffecb4;
+  background-color: #a3501d;
+}
+
+.addNewCommentContainer {
+  /* background-color: blue; */
+  margin: auto;
+  width: 55%;
+  height: 125px;
+
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 70% 30%;
+}
+
+.addNewCommentInput {
+  resize: none;
+
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+.addNewCommentSubmit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  grid-column: 2 / -1;
+  grid-row: 2 /-1;
+}
+
+.commentsList {
+  position: relative;
+  margin-left: 24%;
+  min-width: 95%;
+  z-index: 1000;
+}
+
+.commentBox {
+  background-color: #ffecb4;
+  width: 55%;
+  max-height: auto;
+  min-height: 100px;
+  border: 1px black solid;
+  margin-top: 10px;
+  display: grid;
+  text-align: left;
+
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 30% 70%;
+
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.commentBoxUsername {
+  padding-left: 5px;
+  padding-top: 5px;
+  border-bottom: black 1px solid;
+  border-right: black 1px solid;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.commentBoxTime {
+  padding-right: 5px;
+  padding-top: 5px;
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  color: rgb(78, 78, 78);
+  text-align: right;
+}
+
+.commentBoxText {
+  padding-left: 3px;
+  border-top: black 1px solid;
+  border-left: black 1px solid;
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: -1;
+}
