@@ -49,6 +49,7 @@ class SignUp extends React.Component {
           <button className="createAccount" onClick={this.createAccount}>
             Create Account
           </button>
+          <div className='signUpMessage'>{this.props.signUpMessage}</div>
         </div>
       </>
     );

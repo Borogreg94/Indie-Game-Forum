@@ -26,7 +26,7 @@ class SearchResults extends React.Component {
           sortResults={this.props.sortResults}
           currentSort={this.props.currentSort}
         />
-        <div id="searchText">Search: </div>
+        <div id="searchText">Search</div>
         <input
           type="text"
           id="searchInput"

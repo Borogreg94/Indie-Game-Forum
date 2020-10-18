@@ -27,7 +27,6 @@ server.get('/search/:input', async (req, res, next) => {
     }
   }
 
-  console.log('array before being sent', resultsArray);
   res.send(JSON.stringify(resultsArray));
 });
 
@@ -54,16 +53,6 @@ server.post('/logIn', (req, res, next) => {
     res.send(JSON.stringify(id_name));
   } else {
     res.send(JSON.stringify(false));
-  }
-});
-
-server.get('/matchIpWithUser', (req, res, next) => {
-  const row = cache
-    .prepare('SELECT * FROM users WHERE ip=?')
-    .get(req.connection.remoteAddress);
-
-  if (row) {
-    res.send(JSON.stringify({ username: row.username }));
   }
 });
 
@@ -198,15 +187,19 @@ server.get('/getFavsList/:username', (req, res, next) => {
 
 server.get('/getTopRatedGames', (req, res, next) => {
   const idList = cache
-    .prepare('SELECT gameId FROM ratings ORDER BY rating DESC LIMIT 10')
+    .prepare('SELECT gameId, AVG(rating) FROM ratings GROUP BY gameID ORDER BY rating DESC LIMIT 10')
     .all();
+
+    idList.sort((a, b) => {
+      return ('' + a['AVG(rating)']).localeCompare('' + b['AVG(rating)']);
+    });
+
+    idList.reverse() 
 
   let searchResults = [];
 
   for (var i = 0; i < idList.length; i++) {
-    const game = cache
-      .prepare('SELECT * FROM gameCache where id=?')
-      .get(idList[i].gameId);
+    const game = Search.getObjectFromCache(idList[i].gameId)
     searchResults.push(game);
   }
   res.send(JSON.stringify(searchResults));

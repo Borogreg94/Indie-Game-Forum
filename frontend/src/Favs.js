@@ -1,6 +1,7 @@
 import React from 'react';
 import './Favs.css';
 import Animate from './Animate.js';
+import backEndUrl from './backEndUrl.js'
 
 class Favs extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Favs extends React.Component {
     Animate.openFavs();
     try {
       const response = await fetch(
-        `//localhost:8000/getFavsList/${this.props.username}`
+        `${backEndUrl}/getFavsList/${this.props.username}`
       );
 
       if (response.ok) {

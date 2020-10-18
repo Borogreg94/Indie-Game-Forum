@@ -49,6 +49,7 @@ class LogIn extends React.Component {
           <button className="logIn" onClick={this.logIn}>
             Log In
           </button>
+          <div className='logInMessage'>{this.props.logInMessage}</div>
         </div>
       </>
     );

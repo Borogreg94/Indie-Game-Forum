@@ -3,6 +3,7 @@ import './GameOverlay.css';
 
 import Animate from './Animate.js';
 import GameCard from './GameCard.js';
+import backEndUrl from './backEndUrl.js'
 
 class GameOverlay extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class GameOverlay extends React.Component {
 
   async getCard(id) {
     try {
-      const response = await fetch(`//localhost:8000/getCard/${id}`);
+      const response = await fetch(`${backEndUrl}/getCard/${id}`);
       if (response.ok) {
         const jsonResponse = await response.json();
 
@@ -39,7 +40,7 @@ class GameOverlay extends React.Component {
 
   async getComments(id) {
     try {
-      const response = await fetch(`//localhost:8000/getComments/${id}`);
+      const response = await fetch(`${backEndUrl}/getComments/${id}`);
       if (response.ok) {
         const jsonResponse = await response.json();
 
@@ -57,6 +58,12 @@ class GameOverlay extends React.Component {
     this.getComments(this.props.gameOverlay.gameId);
 
     Animate.openGameOverlay();
+  }
+
+  componentDidUpdate(prevProps){
+    if(this.props.username !== prevProps.username){
+      this.commentText.current.value = ''
+    }
   }
 
   renderComments() {
@@ -87,7 +94,7 @@ class GameOverlay extends React.Component {
 
     if (this.props.username && this.commentText.current.value !== '') {
       try {
-        const response = await fetch(`//localhost:8000/addComment`, {
+        const response = await fetch(`${backEndUrl}/addComment`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -111,7 +118,7 @@ class GameOverlay extends React.Component {
         console.log(error);
       }
     } else {
-      //give them message that you have to be signed in to leave a comment
+      this.commentText.current.value = "Please Log In or Create an Account to leave a Comment";
     }
   }
 

@@ -15,5 +15,7 @@
 }
 
 #searchText {
-  font-size: 20px;
+  font-size: 50px;
+  font-family: 'Bubble';
+  padding-top: 10px;
 }

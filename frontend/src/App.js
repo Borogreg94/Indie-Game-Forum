@@ -8,12 +8,15 @@ import SignUp from './SignUp.js';
 import LogIn from './LogIn.js';
 import GameOverlay from './GameOverlay.js';
 import Favs from './Favs.js';
+import backEndUrl from './backEndUrl.js'
+
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: null,
+      username: 'test_user',
 
       searchResults: [],
       currentSort: '',
@@ -44,39 +47,25 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    //ip matching NEEDS TO CHANGE
+    
     try {
-      const response = await fetch(`//localhost:8000/matchIpWithUser`);
+      const response = await fetch(`${backEndUrl}/getTopRatedGames`);
       if (response.ok) {
         const jsonResponse = await response.json();
-        this.setState({ username: jsonResponse.username });
+        this.setState({ searchResults: jsonResponse, });
       } else {
         throw new Error('didnt get response from server');
       }
     } catch (error) {
       console.log(error);
     }
-
-    //
-    // try {
-    //   const response = await fetch(`//localhost:8000/getTopRatedGames`);
-    //   if (response.ok) {
-    //     const jsonResponse = await response.json();
-    //     console.log(jsonResponse);
-    //     this.setState({ searchResults: jsonResponse });
-    //   } else {
-    //     throw new Error('didnt get response from server');
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
   }
 
   async search(e) {
     if (e.key === 'Enter') {
       const input = e.target.value;
       try {
-        const response = await fetch(`//localhost:8000/search/${input}`);
+        const response = await fetch(`${backEndUrl}/search/${input}`);
         if (response.ok) {
           const jsonResponse = await response.json();
           this.setState({
@@ -94,6 +83,8 @@ class App extends React.Component {
 
   sortResults(method) {
     let newArr, indexOfFirstNum, result;
+
+    console.log('sort results: ', this.state.searchResults)
 
     switch (method) {
       case 'release':
@@ -160,7 +151,7 @@ class App extends React.Component {
   }
 
   closeSignUpWindow() {
-    this.setState({ signUpOpen: false });
+    this.setState({ signUpOpen: false, signUpMessage: '' });
   }
 
   openLogIn() {
@@ -168,7 +159,7 @@ class App extends React.Component {
   }
 
   closeLogInWindow() {
-    this.setState({ logInOpen: false });
+    this.setState({ logInOpen: false, logInMessage: '', });
   }
 
   openGameOverlay(id) {
@@ -221,7 +212,7 @@ class App extends React.Component {
 
   async createAccount(username, password) {
     try {
-      const response = await fetch(`//localhost:8000/createUser`, {
+      const response = await fetch(`${backEndUrl}/createUser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -250,7 +241,7 @@ class App extends React.Component {
 
   async logIn(username, password) {
     try {
-      const response = await fetch(`//localhost:8000/logIn`, {
+      const response = await fetch(`${backEndUrl}/logIn`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -259,14 +250,14 @@ class App extends React.Component {
       });
       if (response.ok) {
         const jsonResponse = await response.json();
+        console.log(jsonResponse)
         if (jsonResponse) {
           this.setState({
             username: jsonResponse.username,
-
             logInOpen: false,
           });
         } else {
-          this.setState({ signInMessage: 'Incorrect Username or Password' });
+          this.setState({ logInMessage: 'Incorrect Username or Password' });
         }
       }
     } catch (error) {
@@ -332,11 +323,12 @@ class App extends React.Component {
           <SignUp
             closeSignUpWindow={this.closeSignUpWindow}
             createAccount={this.createAccount}
+            signUpMessage={this.state.signUpMessage}
           />
         ) : null}
 
         {this.state.logInOpen ? (
-          <LogIn closeLogInWindow={this.closeLogInWindow} logIn={this.logIn} />
+          <LogIn closeLogInWindow={this.closeLogInWindow} logIn={this.logIn} logInMessage={this.state.logInMessage} />
         ) : null}
 
         {this.state.gameOverlay.open ? (

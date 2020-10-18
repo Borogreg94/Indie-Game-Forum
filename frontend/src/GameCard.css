@@ -53,7 +53,7 @@
   border-right: 1px solid black;
 }
 
-.gamePlatforms {
+.gameWebsite {
   background-color: #f7c171;
   grid-column-start: 4;
   grid-column-end: 5;
@@ -61,10 +61,14 @@
   grid-row-end: 2;
 }
 
+.gameWebsiteContainer {
+  padding-top: 15px;
+  font-size: 25px;
+}
+
 .gameRatings,
-.gameReleaseDate,
-.gamePlatforms {
-  font-size: 2.5em;
+.gameReleaseDate {
+  font-size: 3em;
 }
 
 .gameCover {

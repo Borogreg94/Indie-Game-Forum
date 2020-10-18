@@ -43,7 +43,7 @@ class Header extends React.Component {
             Create Account
           </div>
           <div className="signInButton" onClick={this.props.openLogIn}>
-            Sign In
+          Log In
           </div>
         </header>
       );
