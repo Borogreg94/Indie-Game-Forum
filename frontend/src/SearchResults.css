@@ -11,11 +11,19 @@
 }
 
 #searchInput {
-  width: 20vw;
+  width: 25vw;
+  font-size: 20px;
+  padding: 5px;
 }
 
 #searchText {
   font-size: 50px;
   font-family: 'Bubble';
   padding-top: 10px;
+}
+
+.noResults{
+  font-size: 25px;
+  font-family: 'Ubuntu';
+  padding-top: 50px;
 }

@@ -33,24 +33,32 @@ class SearchResults extends React.Component {
           onKeyDown={this.props.search}
           size="20"
         ></input>
-        <div className="resultingGames">
-          {this.props.searchResults.map((card, index) => {
-            return (
-              <GameCard
-                username={this.props.username}
-                search={true}
-                key={index}
-                id={card.id}
-                name={card.name}
-                releaseDate={card.releaseDate}
-                gameSite={card.gameSite}
-                cover={card.cover}
-                summary={card.summary}
-                openGameOverlay={this.props.openGameOverlay}
-              />
-            );
-          })}
-        </div>
+
+        {this.props.searchResults.length > 0 ? 
+          <div className="resultingGames">
+            {this.props.searchResults.map((card, index) => {
+              return (
+                <GameCard
+                  username={this.props.username}
+                  search={true}
+                  key={index}
+                  id={card.id}
+                  name={card.name}
+                  releaseDate={card.releaseDate}
+                  gameSite={card.gameSite}
+                  cover={card.cover}
+                  summary={card.summary}
+                  openGameOverlay={this.props.openGameOverlay}
+                />
+              );
+            })}
+          </div>
+        :
+            <div className='noResults'>
+              No Results
+            </div>
+        }
+        
       </div>
     );
   }

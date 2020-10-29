@@ -294,7 +294,7 @@ class GameCard extends React.Component {
         <img
           className="starIcon"
           id="star1"
-          src={this.state.starFill >= 0 ? starIconFull : starIconEmpty}
+          src={this.state.starFill > 0 ? starIconFull : starIconEmpty}
           onMouseEnter={this.starHover}
           onClick={this.sendStarRating}
         />
