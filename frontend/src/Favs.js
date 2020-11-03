@@ -54,7 +54,7 @@ class Favs extends React.Component {
               >
                 <div className="favsCardTitle">{game.name}</div>
                 <div className="favsCardCover">
-                  <img src={game.cover} />
+                  <img src={game.cover} alt='not available'/>
                 </div>
               </div>
             );

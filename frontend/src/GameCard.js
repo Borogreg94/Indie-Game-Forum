@@ -221,6 +221,9 @@ class GameCard extends React.Component {
       case 'star5':
         this.setState({ starFill: 5 });
         break;
+
+      default:
+        break;
     }
   }
 
@@ -253,6 +256,9 @@ class GameCard extends React.Component {
 
       case 'star5':
         ratingToSend = 5;
+        break;
+
+      default:
         break;
     }
 
@@ -297,6 +303,7 @@ class GameCard extends React.Component {
           src={this.state.starFill > 0 ? starIconFull : starIconEmpty}
           onMouseEnter={this.starHover}
           onClick={this.sendStarRating}
+          alt='star'
         />
         <img
           className="starIcon"
@@ -304,6 +311,7 @@ class GameCard extends React.Component {
           src={this.state.starFill > 1 ? starIconFull : starIconEmpty}
           onMouseEnter={this.starHover}
           onClick={this.sendStarRating}
+          alt='star'
         />
         <img
           className="starIcon"
@@ -311,6 +319,7 @@ class GameCard extends React.Component {
           src={this.state.starFill > 2 ? starIconFull : starIconEmpty}
           onMouseEnter={this.starHover}
           onClick={this.sendStarRating}
+          alt='star'
         />
         <img
           className="starIcon"
@@ -318,6 +327,7 @@ class GameCard extends React.Component {
           src={this.state.starFill > 3 ? starIconFull : starIconEmpty}
           onMouseEnter={this.starHover}
           onClick={this.sendStarRating}
+          alt='star'
         />
         <img
           className="starIcon"
@@ -325,6 +335,7 @@ class GameCard extends React.Component {
           src={this.state.starFill > 4 ? starIconFull : starIconEmpty}
           onMouseEnter={this.starHover}
           onClick={this.sendStarRating}
+          alt='star'
         />
       </>
     );
@@ -374,7 +385,7 @@ class GameCard extends React.Component {
     }
   }
 
-  render() {
+  render() {     
     return (
       <div className="gameCard">
 
@@ -392,13 +403,13 @@ class GameCard extends React.Component {
 
         <div className="gameWebsite">
           <div className='gameWebsiteContainer'>
-            {this.props.gameSite ? <a href={this.props.gameSite} target="_blank">Visit Official Website</a> 
+            {this.props.gameSite ? <a href={this.props.gameSite} target="_blank" rel="noopener noreferrer">Visit Official Website</a> 
             : <div className='gameSiteNotAv'>Game Site Not Available</div>}
           </div>
         </div>
 
         <div className="gameCover">
-          <img src={this.props.cover} />
+          <img src={this.props.cover} alt='not available'/>
         </div>
         <div className="gameSummary">
           <p>{this.summaryFormatter(this.props.summary)}</p>
@@ -407,7 +418,7 @@ class GameCard extends React.Component {
         <div className="commentButton" onClick={this.commentButton}>
           Comment
           <br />
-          <img className="commentIcon" src={commentIcon}></img>
+          <img className="commentIcon" src={commentIcon} alt='comment'/>
         </div>
 
         {this.state.loggedIn_2 ? 
@@ -425,6 +436,7 @@ class GameCard extends React.Component {
           <img
             className="favIcon"
             src={this.state.heartFill ? heartIconFull : heartIconEmpty}
+            alt='favIcon'
           />
         </div> 
         : <div className="saveToFavButton">Please Log In or Create an Account</div> }

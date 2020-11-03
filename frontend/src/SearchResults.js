@@ -5,9 +5,6 @@ import SortBar from './SortBar.js';
 import Animate from './Animate.js';
 
 class SearchResults extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     Animate.openSearchResults();
